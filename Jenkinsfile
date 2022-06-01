@@ -4,11 +4,11 @@ pipeline {
             stage('Pull') {
                 steps{
                     script{
-                        checkout([$class: 'GitSCM', branches: [[name: '*/master']]],
+                        checkout([$class: 'GitSCM', branches: [[name: '*/master']],
                             userRemoteConfigs: [[
-                                credentialsId:'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',
+                                credentialsId:'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',
                                 url: 'https://github.com/ghassenjedidi25/my-app'
-                            ]])
+                            ]]])
                     }
                 }
             }
