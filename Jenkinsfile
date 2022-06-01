@@ -6,7 +6,7 @@ pipeline {
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/master']],
                             userRemoteConfigs: [[
-                                credentialsId:'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',
+                                credentialsId:'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',
                                 url: 'https://github.com/ghassenjedidi25/my-app'
                             ]]])
                     }
@@ -15,7 +15,7 @@ pipeline {
             stage('build') {
                 steps{
                     script{
-                        sh "ansible-playbook -e 'ansible_become_password=onepiece007' ansible/build.yml -i ansible/inventory/host.yml"
+                        sh "ansible-playbook ansible/build.yml -e 'ansible_become_password=onepiece007' -i ansible/inventory/host.yml"
                     }
                 }
             }
