@@ -1,13 +1,14 @@
 pipeline {
     agent any
     tools {nodejs "node"}
+    tools {docker "docker"}
         stages {
             stage('Pull') {
                 steps{
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/master']],
                             userRemoteConfigs: [[
-                                credentialsId:'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',
+                                credentialsId:'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',
                                 url: 'https://github.com/ghassenjedidi25/my-app'
                             ]]])
                     }
