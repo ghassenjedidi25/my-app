@@ -7,7 +7,7 @@ pipeline {
                     script{
                         checkout([$class: 'GitSCM', branches: [[name: '*/master']],
                             userRemoteConfigs: [[
-                                credentialsId:'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',
+                                credentialsId:'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',
                                 url: 'https://github.com/ghassenjedidi25/my-app'
                             ]]])
                     }
@@ -19,6 +19,11 @@ pipeline {
                         sh "npm install"
                         sh "ansible-playbook ansible/build.yml -i ansible/inventory/host.ini "
                     }
+                }
+            }
+            stage ('docker') {
+                steps{
+                    sh "ansible-playbook ansible/docker.yml -i ansible/inventory/host.ini"
                 }
             }
         }
