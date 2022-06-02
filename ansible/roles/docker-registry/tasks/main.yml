@@ -1,0 +1,8 @@
+---
+# tasks file for docker-registry.
+- name: Push to docker hub
+  community.docker.docker_image:
+    name: devops
+    repository: jedidighassen/my-app:latest
+    source: local
+    push: yes
